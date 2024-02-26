@@ -26,6 +26,9 @@ except:
 # сортировка выбором
 mtrx_select = [mtrx[i].copy() for i in range(int(user_n))]
 
+print("\nСОРТИРОВКА ВЫБОРОМ")
+print(f'Неосортированная матрица: {mtrx_select}')
+
 start_time = time.time()
 
 for k in range(int(user_n)):
@@ -36,13 +39,15 @@ for k in range(int(user_n)):
                 smallest = j
         mtrx_select[k][i], mtrx_select[k][smallest] = mtrx_select[k][smallest], mtrx_select[k][i]
 
-
-print("--- {0} ms ---".format(round((time.time() - start_time)*1000)))
+print(f'Отсортированная матрица: {mtrx_select}')
+print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 
 ########################
 
 # сортировка вставками
 mtrx_insert = [mtrx[i].copy() for i in range(int(user_n))]
+print("СОРТИРОВКА ВСТАВКАМИ")
+print(f'Неосортированная матрица: {mtrx_insert}')
 start_time = time.time()
 for k in range(int(user_n)):
     for i in range(1, int(user_m)):
@@ -52,11 +57,15 @@ for k in range(int(user_n)):
             mtrx_insert[k][j + 1] = mtrx_insert[k][j]
             j = j - 1
         mtrx_insert[k][j + 1] = temp
-print("--- {0} ms ---".format(round((time.time() - start_time)*1000)))
+
+print(f'Отсортированная матрица: {mtrx_insert}')
+print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 ######################
 
 # сортировка пузырьком
 mtrx_bubble = [mtrx[i].copy() for i in range(int(user_n))]
+print("СОРТИРОВКА ПУЗЫРЬКОМ")
+print(f'Неосортированная матрица: {mtrx_bubble}')
 start_time = time.time()
 
 for k in range(int(user_n)):
@@ -64,11 +73,15 @@ for k in range(int(user_n)):
         for j in range(int(user_m) - i - 1):
             if mtrx_bubble[k][j] > mtrx_bubble[k][j + 1]:
                 mtrx_bubble[k][j], mtrx_bubble[k][j + 1] = mtrx_bubble[k][j + 1], mtrx_bubble[k][j]
-print("--- {0} ms ---".format(round((time.time() - start_time)*1000)))
+
+print(f'Отсортированная матрица: {mtrx_bubble}')
+print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 ######################
 
 # сортировка Шелла
 mtrx_shell = [mtrx[i].copy() for i in range(int(user_n))]
+print("СОРТИРОВКА ШЕЛЛА")
+print(f'Неосортированная матрица: {mtrx_shell}')
 start_time = time.time()
 
 for h in range(int(user_n)):
@@ -85,13 +98,15 @@ for h in range(int(user_n)):
             mtrx_shell[h][j] = temp
         k -= 1
         interval = 2 ** k - 1
-
-print("--- {0} ms ---".format(round((time.time() - start_time)*1000)))
+print(f'Отсортированная матрица: {mtrx_shell}')
+print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 ######################
 
 
 # быстрая сортировка
 mtrx_quick = [mtrx[i].copy() for i in range(int(user_n))]
+print("БЫСТРАЯ СОРТИРОВКА")
+print(f'Неосортированная матрица: {mtrx_quick}')
 start_time = time.time()
 
 def quicksort(nums):
@@ -113,13 +128,15 @@ def quicksort(nums):
 
 for i in range(int(user_n)):
     mtrx_quick[i] = quicksort(mtrx_quick[i])
-
-print("--- {0} ms ---".format(round((time.time() - start_time)*1000)))
+print(f'Отсортированная матрица: {mtrx_quick}')
+print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 ######################
 
 
 # быстрая турнирная
 mtrx_tur = [mtrx[i].copy() for i in range(int(user_n))]
+print("БЫСТРАЯ ТУРНИРНАЯ")
+print(f'Неосортированная матрица: {mtrx_tur}')
 start_time = time.time()
 
 def heapsort(alist):
@@ -159,7 +176,7 @@ def max_heapify(alist, index, size):
 
 for i in range(int(user_n)):
     heapsort(mtrx_tur[i])
-
+print(f'Отсортированная матрица: {mtrx_tur}')
 print("--- {0} ms ---".format(round((time.time() - start_time)*1000)))
 ######################
 
