@@ -27,7 +27,7 @@ except:
 mtrx_select = [mtrx[i].copy() for i in range(int(user_n))]
 
 print("\nСОРТИРОВКА ВЫБОРОМ")
-print(f'Неосортированная матрица: {mtrx_select}')
+print(f'Неотсортированная матрица: {mtrx_select}')
 
 start_time = time.time()
 
@@ -47,7 +47,7 @@ print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 # сортировка вставками
 mtrx_insert = [mtrx[i].copy() for i in range(int(user_n))]
 print("СОРТИРОВКА ВСТАВКАМИ")
-print(f'Неосортированная матрица: {mtrx_insert}')
+print(f'Неотсортированная матрица: {mtrx_insert}')
 start_time = time.time()
 for k in range(int(user_n)):
     for i in range(1, int(user_m)):
@@ -65,7 +65,7 @@ print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 # сортировка пузырьком
 mtrx_bubble = [mtrx[i].copy() for i in range(int(user_n))]
 print("СОРТИРОВКА ПУЗЫРЬКОМ")
-print(f'Неосортированная матрица: {mtrx_bubble}')
+print(f'Неотсортированная матрица: {mtrx_bubble}')
 start_time = time.time()
 
 for k in range(int(user_n)):
@@ -81,7 +81,7 @@ print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 # сортировка Шелла
 mtrx_shell = [mtrx[i].copy() for i in range(int(user_n))]
 print("СОРТИРОВКА ШЕЛЛА")
-print(f'Неосортированная матрица: {mtrx_shell}')
+print(f'Неотсортированная матрица: {mtrx_shell}')
 start_time = time.time()
 
 for h in range(int(user_n)):
@@ -106,7 +106,7 @@ print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 # быстрая сортировка
 mtrx_quick = [mtrx[i].copy() for i in range(int(user_n))]
 print("БЫСТРАЯ СОРТИРОВКА")
-print(f'Неосортированная матрица: {mtrx_quick}')
+print(f'Неотсортированная матрица: {mtrx_quick}')
 start_time = time.time()
 
 def quicksort(nums):
@@ -136,7 +136,7 @@ print("--- {0} ms ---\n".format(round((time.time() - start_time)*1000)))
 # быстрая турнирная
 mtrx_tur = [mtrx[i].copy() for i in range(int(user_n))]
 print("БЫСТРАЯ ТУРНИРНАЯ")
-print(f'Неосортированная матрица: {mtrx_tur}')
+print(f'Неотсортированная матрица: {mtrx_tur}')
 start_time = time.time()
 
 def heapsort(alist):
@@ -179,4 +179,14 @@ for i in range(int(user_n)):
 print(f'Отсортированная матрица: {mtrx_tur}')
 print("--- {0} ms ---".format(round((time.time() - start_time)*1000)))
 ######################
+
+
+print('\nСТАНДАРТНАЯ ФУНКЦИЯ СОРТИРОВКИ')
+mtrx_stand = [mtrx[i].copy() for i in range(int(user_n))]
+print(f'Неотсортированная матрица: {mtrx_stand}')
+start_time = time.time()
+for i in range(int(user_n)):
+    mtrx_stand[i].sort()
+print(f'Отсортированная матрица: {mtrx_stand}')
+print("--- {0} ms ---".format(round((time.time() - start_time)*1000)))
 
