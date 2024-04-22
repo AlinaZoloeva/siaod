@@ -1,3 +1,4 @@
+'''
 import collections
 
 class Stack:
@@ -43,3 +44,50 @@ class Deque:
 
     def peek(self):
         return self.deque[-1]
+'''
+import itertools
+import re
+
+a = input()
+b = input()
+
+b_arr = re.split('<', b)
+
+
+s = list(b_arr[0])
+
+
+curr_pos = len(s) - 1
+for i in range(1, len(b_arr)):
+    if '>' in b_arr[i]:
+        if b_arr[i][:b_arr[i].find('>')] == 'left':
+            if curr_pos != 0:
+                curr_pos -= 1
+
+        elif b_arr[i][:b_arr[i].find('>')] == 'bspace':
+            if len(s) != 0:
+                s.pop(curr_pos)
+                curr_pos -= 1
+        elif b_arr[i][:b_arr[i].find('>')] == 'delete':
+            if curr_pos != len(s) - 1 and len(s) != 0:
+                s.pop(curr_pos + 1)
+
+        elif b_arr[i][:b_arr[i].find('>')] == 'right':
+            if curr_pos != len(s):
+                curr_pos += 1
+
+        if b_arr[i].find('>') != len(b_arr[i]) - 1:
+            s.insert(curr_pos + 1, b_arr[i][b_arr[i].find('>') + 1:])
+            curr_pos += len(b_arr[i][b_arr[i].find('>') + 1:])
+            s = list(itertools.chain(*s))
+
+if ''.join(s) == a:
+    print('Yes')
+else:
+    print('No')
+
+
+
+
+
+
